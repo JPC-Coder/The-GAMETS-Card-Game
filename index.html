@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The GAMETS Battle Card Game</title>
+    <link rel="stylesheet" href="./styles.css?v=2">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">App style card battle</p>
+          <h1 class="game-title">The GAMETS Battle Card Game</h1>
+        </div>
+        <nav class="main-tabs" aria-label="Main views">
+          <button class="tab-button active" data-view="play">Play</button>
+          <button class="tab-button" data-view="rules">Rules</button>
+          <button class="tab-button" data-view="cards">Cards</button>
+        </nav>
+      </header>
+
+      <main>
+        <section class="view active" id="view-play">
+          <div class="hero-board">
+            <div class="box-scene">
+              <img class="box-art" src="./assets/ui/box-hero.jpg" alt="GAMETS box art">
+              <img class="air-head-card" src="./assets/cards/card01.jpg" alt="Air Head card art">
+              <div class="box-label">
+                <span>Air Head</span>
+                <strong>Main Character</strong>
+              </div>
+            </div>
+
+            <div class="table-panel">
+              <div class="mode-row" role="group" aria-label="Game mode">
+                <button class="mode-button active" data-mode="bot">Vs Bot</button>
+                <button class="mode-button" data-mode="local">2 Players</button>
+                <button class="mode-button" data-mode="online">Online Room</button>
+              </div>
+
+              <div class="online-panel hidden" id="online-panel">
+                <label for="room-code">Room code</label>
+                <div class="room-actions">
+                  <input id="room-code" maxlength="8" placeholder="GAMETS">
+                  <button id="create-room">Create</button>
+                  <button id="join-room">Join</button>
+                </div>
+                <p id="room-status">Online room is staged for a server connection. Bot and same-screen play are ready now.</p>
+              </div>
+
+              <div class="score-strip" aria-live="polite">
+                <div>
+                  <span>Deck</span>
+                  <strong id="deck-count">50</strong>
+                </div>
+                <div>
+                  <span>Round</span>
+                  <strong id="round-count">1</strong>
+                </div>
+                <div>
+                  <span id="player-score-label">You kept</span>
+                  <strong id="player-captures">0</strong>
+                </div>
+                <div>
+                  <span id="opponent-score-label">Bot kept</span>
+                  <strong id="opponent-captures">0</strong>
+                </div>
+              </div>
+
+              <section class="turn-banner" id="turn-banner">
+                Choose an attack card to start the battle.
+              </section>
+
+              <section class="battlefield" aria-label="Battlefield">
+                <div class="battle-slot">
+                  <p>Attack</p>
+                  <div id="attack-slot" class="slot-card empty">Waiting</div>
+                </div>
+                <div class="battle-result" id="battle-result">
+                  Attack beats defense when the attack number is bigger.
+                </div>
+                <div class="battle-slot">
+                  <p>Defense</p>
+                  <div id="defense-slot" class="slot-card empty">Waiting</div>
+                </div>
+              </section>
+
+              <section class="controls" aria-label="Card controls">
+                <div id="selected-readout">Select a card from the active hand.</div>
+                <div class="control-buttons">
+                  <button id="boost-attack" disabled>Boost ATK</button>
+                  <button id="boost-defense" disabled>Boost DEF</button>
+                  <button id="play-card" disabled>Play Card</button>
+                  <button id="new-match">New Match</button>
+                </div>
+              </section>
+            </div>
+          </div>
