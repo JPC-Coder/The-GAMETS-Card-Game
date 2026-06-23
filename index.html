@@ -10,7 +10,7 @@
     <div class="app-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">App style card battle</p>
+          <p class="eyebrow"> card battle</p>
           <h1 class="game-title">The GAMETS Battle Card Game</h1>
         </div>
         <nav class="main-tabs" aria-label="Main views">
@@ -25,10 +25,10 @@
           <div class="hero-board">
             <div class="box-scene">
               <img class="box-art" src="./assets/ui/box-hero.jpg" alt="GAMETS box art">
-              <img class="air-head-card" src="./assets/cards/card01.jpg" alt="Air Head card art">
+              
               <div class="box-label">
-                <span>Air Head</span>
-                <strong>Main Character</strong>
+                <span>THE BATTLE BEGINS</span>
+                <strong>fiGHT to the finish</strong>
               </div>
             </div>
 
@@ -97,3 +97,109 @@
               </section>
             </div>
           </div>
+
+          <div class="hands-grid">
+            <section class="hand-zone" id="player-zone">
+              <div class="zone-heading">
+                <div>
+                  <p class="eyebrow">Player 1</p>
+                  <h2>Your Hand</h2>
+                </div>
+                <span id="player-hand-count">5 cards</span>
+              </div>
+              <div class="hand" id="player-hand"></div>
+            </section>
+
+            <section class="hand-zone" id="opponent-zone">
+              <div class="zone-heading">
+                <div>
+                  <p class="eyebrow" id="opponent-kicker">Bot</p>
+                  <h2 id="opponent-title">Bot Hand</h2>
+                </div>
+                <span id="opponent-hand-count">5 cards</span>
+              </div>
+              <div class="hand" id="opponent-hand"></div>
+            </section>
+          </div>
+
+          <aside class="battle-log">
+            <div class="zone-heading">
+              <div>
+                <p class="eyebrow">Battle log</p>
+                <h2>Latest Moves</h2>
+              </div>
+            </div>
+            <ol id="battle-log"></ol>
+          </aside>
+        </section>
+
+        <section class="view" id="view-rules">
+          <div class="rules-layout">
+            <article class="rules-card">
+              <p class="eyebrow">How to play</p>
+              <h2>The Rules</h2>
+              <ol>
+                <li>Shuffle the 50-card GAMETS deck. Each player draws 5 cards.</li>
+                <li>The first player starts by playing an attack card.</li>
+                <li>The other player answers with a defense card.</li>
+                <li>If the attack number is bigger than the defense number, the attacker wins and keeps the defender's card.</li>
+                <li>If the defense number is bigger, or the numbers tie, the defender wins and keeps the attack card.</li>
+                <li>After every battle, both players draw back up to 5 cards while the deck has cards left.</li>
+                <li>Diamond cards can boost either attack or defense by 100-500 points once.</li>
+                <li>Star cards can boost either attack or defense by 200-1000 points once.</li>
+                <li>Free Pass wild cards do not enter battle. Use one to skip the fight, discard it, draw one new card, and wait until your next turn.</li>
+                <li>When the deck runs out and a player has no cards left, count captured cards. The player with more captured cards wins.</li>
+              </ol>
+            </article>
+
+            <article class="rules-card accent-card">
+              <p class="eyebrow">Power cards</p>
+              <h2>Diamonds, Stars, Wilds</h2>
+              <div class="power-list">
+                <div>
+                  <span class="power-chip diamond-chip">Diamond</span>
+                  <p>15 super cards. Press the diamond controls to charge attack or defense.</p>
+                </div>
+                <div>
+                  <span class="power-chip star-chip">Star</span>
+                  <p>10 boosted cards. Star power is bigger and riskier, adding 200-1000 points.</p>
+                </div>
+                <div>
+                  <span class="power-chip wild-chip">Free Pass</span>
+                  <p>5 wild cards. They are used once, skip battle, and replace themselves from the deck.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="view-cards">
+          <div class="gallery-heading">
+            <div>
+              <p class="eyebrow">Deck gallery</p>
+              <h2>50 Numbered Cards</h2>
+            </div>
+            <div class="gallery-counts" id="gallery-counts"></div>
+          </div>
+          <div class="gallery-grid" id="gallery-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="card-template">
+      <button class="game-card" type="button">
+        <img class="card-image" alt="">
+        <span class="card-number"></span>
+        <span class="card-kind"></span>
+        <span class="wild-banner">FREE PASS</span>
+        <span class="card-name"></span>
+        <span class="card-stats">
+          <span><b>ATK</b><strong class="attack-value"></strong></span>
+          <span><b>DEF</b><strong class="defense-value"></strong></span>
+        </span>
+      </button>
+    </template>
+
+    <script src="./app.js?v=2"></script>
+  </body>
+</html>
